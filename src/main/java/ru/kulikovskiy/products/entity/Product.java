@@ -3,6 +3,8 @@ package ru.kulikovskiy.products.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 
 @Entity
@@ -16,6 +18,12 @@ public class Product {
     private String productName;
     @Column(name = "price")
     private String price;
-    @Column(name = "date")
+    @Column(name = "date", updatable = false)
     private Date date;
+
+    @PrePersist
+    private void save() {
+        this.date = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault())
+                        .toInstant());
+    }
 }
