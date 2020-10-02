@@ -5,13 +5,14 @@ import org.springframework.web.bind.annotation.*;
 import ru.kulikovskiy.products.entity.Product;
 import ru.kulikovskiy.products.model.ProductRequest;
 import ru.kulikovskiy.products.service.ProductService;
+import ru.kulikovskiy.products.service.ProductServiceImpl;
 
 @RestController
 @RequestMapping(value = "/products")
 public class ProductsController {
     private final ProductService productService;
 
-    public ProductsController(ProductService productService) {
+    public ProductsController(ProductServiceImpl productServiceImpl, ProductService productService) {
         this.productService = productService;
     }
 
