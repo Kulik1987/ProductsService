@@ -44,4 +44,16 @@
             <artifactId>jackson-core</artifactId>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <executable>true</executable>
+                    <finalName>ProductsService</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
